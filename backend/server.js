@@ -21,11 +21,11 @@ mongoose.connection.on('error', (err) => {
     console.log('Error connecting to MongoDB:', err);
 });
 
-// // Define a simple route
-// app.get('/', (req, res) => {
-//     res.send('Hello from the backend!');
-// });
+// Define a simple route
+app.get('/', (req, res) => {
+    res.send('Hello from the backend!');
+});
 
-// app.listen(PORT, () => {
-//     console.log(`Server is running on port ${PORT}`);
-// });
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
