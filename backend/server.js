@@ -1,29 +1,38 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-
+const { MongoClient } = require('mongodb');
 const app = express();
-const PORT = process.env.PORT || 5000;
+const port = 3000;
 
-app.use(cors());
-app.use(express.json());
+// MongoDB connection URI
+const uri = 'mongodb://localhost:27017';
+const dbName = 'local';
 
-// const mongoUri = 'mongodb+srv://ehmaddd:mongoahmad@cluster.mongodb.net/shopdb?retryWrites=true&w=majority';
+let db;
 
-// mongoose.connect(mongoUri);
+// Connect to MongoDB
+MongoClient.connect(uri)
+  .then(client => {
+    console.log('Connected to Database');
+    db = client.db(dbName);
 
-// mongoose.connection.on('connected', () => {
-//     console.log('Connected to MongoDB');
-// });
+    // Start Express server
+    app.listen(port, () => {
+      console.log(`Server is running on http://localhost:${port}`);
+    });
+  })
+  .catch(error => console.error(error));
 
-// mongoose.connection.on('error', (err) => {
-//     console.log('Error connecting to MongoDB:', err);
-// });
-
+// Define a route to verify the connection
 app.get('/', (req, res) => {
-    res.send('Hello from the backend!');
+  res.send('Hello World!');
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+// Define a route to fetch data from the database
+app.get('/data', (req, res) => {
+  const collection = db.collection('myCollection');
+  collection.find().toArray()
+    .then(results => {
+      res.json(results);
+    })
+    .catch(error => console.error(error));
 });
