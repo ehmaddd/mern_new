@@ -9,6 +9,7 @@ async function connectToMongo() {
     try {
         console.log('Attempting to connect to MongoDB...');
         const client = await MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
+        console.log(client);
         console.log("Connected to MongoDB!");
         dbInstance = client.db(dbName);
         return dbInstance;
