@@ -4,7 +4,7 @@ const { connectToMongo } = require('./db');
 const app = express();
 const port = 3000;
 
-app.use(express.json()); // To parse JSON request bodies
+app.use(express.json());
 
 app.get('/', async (req, res) => {
     try {
@@ -17,7 +17,6 @@ app.get('/', async (req, res) => {
     }
 });
 
-// Insert a document
 app.post('/insert', async (req, res) => {
     try {
         const db = await connectToMongo();
@@ -41,7 +40,6 @@ app.get('/read', async (req, res) => {
     }
 });
 
-// Update a document
 app.put('/update', async (req, res) => {
     try {
         const db = await connectToMongo();
