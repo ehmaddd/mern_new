@@ -13,7 +13,8 @@ const Home = () => {
     headers: { 'Content-Type': 'application/json' },
   });
   const fetchedData = await fetchResponse.json();
-  setData(fetchedData);
+  console.log(fetchedData);
+  // setData(fetchedData);
   }
 
   //Get data on refresh
