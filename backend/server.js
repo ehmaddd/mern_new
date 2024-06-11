@@ -13,7 +13,7 @@ app.get('/', async (req, res) => {
         const db = await connectToMongo();
         const collection = db.collection('myCollection');
         const data = await collection.find({}).toArray();
-        res.send(data);
+        res.json(data);
     } catch (err) {
         res.status(500).send('Failed to connect to MongoDB');
     }
@@ -31,16 +31,16 @@ app.post('/insert', async (req, res) => {
 });
 
 // Read documents
-app.get('/read', async (req, res) => {
-    try {
-        const db = await connectToMongo();
-        const collection = db.collection('myCollection');
-        const documents = await collection.find({}).toArray();
-        res.send(documents);
-    } catch (err) {
-        res.status(500).send('Failed to read documents from MongoDB');
-    }
-});
+// app.get('/read', async (req, res) => {
+//     try {
+//         const db = await connectToMongo();
+//         const collection = db.collection('myCollection');
+//         const documents = await collection.find({}).toArray();
+//         res.send(documents);
+//     } catch (err) {
+//         res.status(500).send('Failed to read documents from MongoDB');
+//     }
+// });
 
 app.put('/update', async (req, res) => {
     try {
