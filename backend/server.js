@@ -30,8 +30,8 @@ app.post('/insert', async (req, res) => {
     }
 });
 
-Read documents
-// app.get('/read', async (req, res) => {
+// Read documents
+app.get('/read', async (req, res) => {
 //     try {
 //         const db = await connectToMongo();
 //         const collection = db.collection('myCollection');
@@ -40,7 +40,7 @@ Read documents
 //     } catch (err) {
 //         res.status(500).send('Failed to read documents from MongoDB');
 //     }
-// });
+});
 
 app.put('/update', async (req, res) => {
     try {
