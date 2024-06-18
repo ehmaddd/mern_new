@@ -35,7 +35,7 @@ app.get('/read', async (req, res) => {
     try {
         const db = await connectToMongo();
         const collection = db.collection('myCollection');
-//         const documents = await collection.find({}).toArray();
+        const documents = await collection.find({}).toArray();
 //         res.send(documents);
     } catch (err) {
 //         res.status(500).send('Failed to read documents from MongoDB');
