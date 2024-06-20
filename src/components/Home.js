@@ -13,7 +13,7 @@ const Home = () => {
     headers: { 'Content-Type': 'application/json' },
   });
   const fetchedData = await fetchResponse.json();
-  console.log(fetchedData);
+  console.log(JSON.stringify(fetchedData));
   // setData(fetchedData);
   }
 
