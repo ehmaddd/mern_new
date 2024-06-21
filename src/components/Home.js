@@ -48,6 +48,7 @@ const Home = () => {
               <tr>
                 <th>ID</th>
                 <th>Name</th>
+                <th>Type</th>
               </tr>
             </thead>
             <tbody>
