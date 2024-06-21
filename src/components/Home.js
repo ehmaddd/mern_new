@@ -53,7 +53,7 @@ const Home = () => {
             <tbody>
               {data.map((datum) => (
                 <tr key={datum.id}>
-                  <td>{datum.id}</td>
+                  <td>{datum._id}</td>
                   <td>{datum.name}</td>
                 </tr>
               ))}
