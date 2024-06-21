@@ -7,15 +7,23 @@ const Home = () => {
   const [data, setData] = useState([]);
 
   //Get all data from database
-  const fetchData = async (e) => {
-    const fetchResponse = await fetch('http://localhost:3000/', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-  });
-  const fetchedData = await fetchResponse.json();
-  console.log(JSON.stringify(fetchedData));
-  // setData(fetchedData);
-  }
+  const fetchData = async () => {
+    try {
+        const fetchResponse = await fetch('http://localhost:3000/read', {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+        });
+        if (!fetchResponse.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const fetchedData = await fetchResponse.json();
+        console.log(JSON.stringify(fetchedData));
+        setData(fetchedData);
+    } catch (error) {
+        console.error('Failed to fetch data:', error);
+    }
+  };
+
 
   //Get data on refresh
   useEffect(()=> {
