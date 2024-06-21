@@ -17,7 +17,6 @@ const Home = () => {
             throw new Error('Network response was not ok');
         }
         const fetchedData = await fetchResponse.json();
-        console.log(JSON.stringify(fetchedData));
         setData(fetchedData);
     } catch (error) {
         console.error('Failed to fetch data:', error);
