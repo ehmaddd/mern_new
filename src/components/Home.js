@@ -56,6 +56,7 @@ const Home = () => {
                 <tr key={datum.id}>
                   <td>{datum._id}</td>
                   <td>{datum.name}</td>
+                  <td>{datum.type}</td>
                 </tr>
               ))}
             </tbody>
