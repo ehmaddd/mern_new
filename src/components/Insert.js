@@ -9,7 +9,7 @@ const Insert = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch('http://localhost:4000/api/data', { // Updated URL
+    const response = await fetch('http://localhost:3000/insert', { // Updated URL
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({

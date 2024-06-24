@@ -21,10 +21,11 @@ app.get('/', async (req, res) => {
 
 app.post('/insert', async (req, res) => {
     try {
-        const db = await connectToMongo();
-        const collection = db.collection('myCollection');
-        const result = await collection.insertOne(req.body);
-        res.send(result);
+        // const db = await connectToMongo();
+        // const collection = db.collection('myCollection');
+        // const result = await collection.insertOne(req.body);
+        // res.send(result);
+        console.log(req.body);
     } catch (err) {
         res.status(500).send('Failed to insert document into MongoDB');
     }
