@@ -23,7 +23,7 @@ app.post('/insert', async (req, res) => {
     try {
         const db = await connectToMongo();
         const collection = db.collection('myCollection');
-        // const result = await collection.insertOne(req.body);
+        const result = await collection.insertOne(req.body);
         // res.send(result);
         console.log(req.body);
     } catch (err) {
