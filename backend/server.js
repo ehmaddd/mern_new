@@ -19,6 +19,7 @@ app.get('/', async (req, res) => {
     }
 });
 
+// Insert documents
 app.post('/insert', async (req, res) => {
     try {
         const db = await connectToMongo();
