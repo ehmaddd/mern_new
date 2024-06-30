@@ -9,7 +9,7 @@ const Search = () => {
 
     const fetchData = async () => {
       try {
-        const fetchResponse = await fetch('http://localhost:4000/api/fetchid', {
+        const fetchResponse = await fetch('http://localhost:3000/fetchid', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
         });
