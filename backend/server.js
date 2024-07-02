@@ -45,7 +45,7 @@ app.get('/read', async (req, res) => {
 });
 
 // Fetch all ids
-app.get('/read', async (req, res) => {
+app.get('/fetchid', async (req, res) => {
     try {
         const db = await connectToMongo();
         const collection = db.collection('myCollection');
