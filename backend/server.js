@@ -49,9 +49,11 @@ app.get('/fetchid', async (req, res) => {
     try {
         const db = await connectToMongo();
         const collection = db.collection('myCollection');
-        const documents = await collection.findOne({}).toArray();
-        res.send(documents);
+        const documents = await collection.find({}, { projection: { _id: 1 } }).toArray();
+        const ids = documents.map(doc => doc._id);
+        res.send(ids);
     } catch (err) {
+        console.error(err);
         res.status(500).send('Failed to read documents from MongoDB');
     }
 });
