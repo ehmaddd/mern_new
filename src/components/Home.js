@@ -54,7 +54,7 @@ const Home = () => {
             <tbody>
               {data.map((datum) => (
                 <tr key={datum.id}>
-                  <td>{datum._id.slice(-2)}</td>
+                  <td>{datum.id}</td>
                   <td>{datum.name}</td>
                   <td>{datum.type}</td>
                 </tr>
