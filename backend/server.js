@@ -51,7 +51,8 @@ app.get('/fetchid', async (req, res) => {
         const collection = db.collection('myCollection');
         const documents = await collection.find({}, { projection: { _id: 1 } }).toArray();
         const ids = documents.map(doc => doc._id);
-        res.send(ids);
+        console.log(ids);
+        // res.send(ids);
     } catch (err) {
         console.error(err);
         res.status(500).send('Failed to read documents from MongoDB');
