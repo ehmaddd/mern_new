@@ -10,7 +10,7 @@ const Search = () => {
     const fetchData = async () => {
       try {
         const fetchResponse = await fetch('http://localhost:3000/fetchid', {
-          method: 'POST',
+          method: 'GET',
           headers: { 'Content-Type': 'application/json' },
         });
         const fetchedData = await fetchResponse.json();
