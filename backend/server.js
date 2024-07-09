@@ -51,7 +51,6 @@ app.get('/fetchid', async (req, res) => {
         const collection = db.collection('myCollection');
         const documents = await collection.find({}, { projection: { id: 1 } }).toArray();
         const ids = documents.map(doc => doc.id);
-        console.log(ids);
         res.send(ids);
     } catch (err) {
         console.error(err);
