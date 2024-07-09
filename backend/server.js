@@ -50,7 +50,7 @@ app.get('/fetchid', async (req, res) => {
         const db = await connectToMongo();
         const collection = db.collection('myCollection');
         const documents = await collection.find({}, { projection: { _id: 1 } }).toArray();
-        const ids = documents.map(doc => doc._id);
+        const ids = documents.map(doc => doc.id);
         console.log(ids);
         // res.send(ids);
     } catch (err) {
