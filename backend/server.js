@@ -58,6 +58,9 @@ app.get('/fetchid', async (req, res) => {
     }
 });
 
+app.get('/dataget', async (req, res) => {
+});
+
 app.put('/update', async (req, res) => {
     try {
         const db = await connectToMongo();
