@@ -59,6 +59,23 @@ app.get('/fetchid', async (req, res) => {
 });
 
 app.get('/dataget', async (req, res) => {
+    try {
+        const { id } = req.body;
+        const db = await connectToMongo();
+        const collection = db.collection('myCollection');
+
+        // Find the document with the given id
+        const document = await collection.findOne({ id: id });
+
+        if (document) {
+          res.status(200).json(document);
+        } else {
+          res.status(404).send('Document not found');
+        }
+      } catch (err) {
+        console.error(err);
+        res.status(500).send('Failed to search documents in MongoDB');
+      }
 });
 
 app.put('/update', async (req, res) => {
