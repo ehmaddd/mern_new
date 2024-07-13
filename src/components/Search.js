@@ -61,7 +61,7 @@ const Search = () => {
             {
             data.map((datum) => {
               return (
-                <option value="{datum}">{datum}</option>
+                <option value={datum}>{datum}</option>
               )
             })
             }
