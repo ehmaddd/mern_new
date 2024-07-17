@@ -1,5 +1,7 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const cors = require('cors');
+const { MongoClient } = require('mongodb');
 const { connectToMongo } = require('./db');
 
 const app = express();
@@ -7,6 +9,7 @@ const port = 3000;
 app.use(cors());
 
 app.use(express.json());
+app.use(bodyParser.json());
 
 app.get('/', async (req, res) => {
     try {
@@ -58,26 +61,23 @@ app.get('/fetchid', async (req, res) => {
     }
 });
 
-app.get('/dataget', async (req, res) => {
+app.post('/dataget', async (req, res) => {
     // try {
         const { id } = req.body;
         console.log(id);
         // const db = await connectToMongo();
         // const collection = db.collection('myCollection');
-
-        // Find the document with the given id
         // const document = await collection.findOne({ id: id });
-
         // if (document) {
-        //   res.status(200).send('Document found');
-        //   res.status(200).json(document);
+            // res.status(200).json(document);
+    //         console.log(document);
     //     } else {
-    //       res.status(404).send('Document not found');
+    //         res.status(404).send('Document not found');
     //     }
-    //   } catch (err) {
+    // } catch (err) {
     //     console.error(err);
     //     res.status(500).send('Failed to search documents in MongoDB');
-    //   }
+    // }
 });
 
 app.put('/update', async (req, res) => {
