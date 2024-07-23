@@ -37,7 +37,11 @@ app.post('/insert', async (req, res) => {
 
 // Read documents
 app.get('/read', async (req, res) => {
+    try {
 
+    } catch (err) {
+
+    }
 });
 
 // Fetch all ids
