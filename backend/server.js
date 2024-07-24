@@ -38,9 +38,8 @@ app.post('/insert', async (req, res) => {
 // Read documents
 app.get('/read', async (req, res) => {
     try {
-
+        const db = await connectToMongo();
     } catch (err) {
-
     }
 });
 
