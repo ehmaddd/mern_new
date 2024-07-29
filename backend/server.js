@@ -41,6 +41,7 @@ app.get('/read', async (req, res) => {
         const db = await connectToMongo();
         const collection = db.collection('myCollection');
         const documents = await collection.find({}).toArray();
+        res.send(documents);
     } catch (err) {
     }
 });
