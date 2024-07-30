@@ -43,6 +43,7 @@ app.get('/read', async (req, res) => {
         const documents = await collection.find({}).toArray();
         res.send(documents);
     } catch (err) {
+        res.status(500);
     }
 });
 
