@@ -69,7 +69,7 @@ app.post('/dataget', async (req, res) => {
         const document = await collection.findOne({ id: id });
         if (document) {
             // res.status(200).json(document);
-            console.log(document);
+            // console.log(document);
         } else {
             res.status(404).send('Document not found');
         }
